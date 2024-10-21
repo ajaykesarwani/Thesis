@@ -458,7 +458,7 @@ if __name__ == "__main__":
         # Header
         #st.markdown('<h2 class="header">COMMENT MODERATION</h2>', unsafe_allow_html=True)
 
-        logo_path = "/workspaces/Thesis/constructive_final/data/model/logo_unipassau.PNG"
+        logo_path = "./data/model/logo_unipassau.PNG"
         university_logo = Image.open(logo_path)
         st.image(university_logo, width=700)
         #st.title("Text Analysis for Constructive Comments")
