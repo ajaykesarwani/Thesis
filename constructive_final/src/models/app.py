@@ -458,7 +458,7 @@ if __name__ == "__main__":
         # Header
         #st.markdown('<h2 class="header">COMMENT MODERATION</h2>', unsafe_allow_html=True)
 
-        logo_path = "./data/model/logo_unipassau.PNG"
+        logo_path = "./constructive_final/data/model/logo_unipassau.PNG"
         university_logo = Image.open(logo_path)
         st.image(university_logo, width=700)
         #st.title("Text Analysis for Constructive Comments")
@@ -476,21 +476,21 @@ if __name__ == "__main__":
         model_1 = st.sidebar.selectbox("Please select a model:", ["Logistic Regression", "Support Vector Machine", "Random Forest", "K-Nearest Neighbor", "Long Short-Term Memory", "Bi-directional Long-Short Term Memory","Gated-Recurrent Unit", "Convolution Neural Network"])
         # Load the model (provide the path to your .joblib file)
         if model_1 == "Logistic Regression":
-            model_path = "/workspaces/Thesis/constructive_final/data/model/Logistic_Regression_best_model.pkl"
+            model_path = "./constructive_final/data/model/Logistic_Regression_best_model.pkl"
         elif model_1 == "Support Vector Machine":
-            model_path = "/workspaces/Thesis/constructive_final/data/model/SVM_best_model.pkl"
+            model_path = "./constructive_final/data/model/SVM_best_model.pkl"
         elif model_1 == "Random Forest":
-            model_path = "/workspaces/Thesis/constructive_final/data/model/Random_Forest_best_model.pkl"
+            model_path = "./constructive_final/data/model/Random_Forest_best_model.pkl"
         elif model_1 == "K-Nearest Neighbor":
-            model_path = "/workspaces/Thesis/constructive_final/data/model/KNN_best_model.pkl"
+            model_path = "./constructive_final/data/model/KNN_best_model.pkl"
         elif model_1 == "Long Short-Term Memory":
-            model_path = "/workspaces/Thesis/constructive_final/data/model/LSTM_best_model.pkl"
+            model_path = "./constructive_final/data/model/LSTM_best_model.pkl"
         elif model_1 == "Bi-directional Long-Short Term Memory":
-            model_path = "/workspaces/Thesis/constructive_final/data/model/BiLSTM_best_model.pkl"
+            model_path = "./constructive_final/data/model/BiLSTM_best_model.pkl"
         elif model_1 == "Gated-Recurrent Unit":
-            model_path = "/workspaces/Thesis/constructive_final/data/model/GRU_best_model.pkl"
+            model_path = "./constructive_final/data/model/GRU_best_model.pkl"
         elif model_1 == "Convolution Neural Network":
-            model_path = "/workspaces/Thesis/constructive_final/data/model/CNN_best_model.pkl"
+            model_path = "./constructive_final/data/model/CNN_best_model.pkl"
 
         model = load_model(model_path)
         
