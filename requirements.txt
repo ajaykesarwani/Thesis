@@ -6,7 +6,6 @@ pyenchant
 streamlit
 scikeras
 tensorflow
-NormalizeContraction
 bs4
 matplotlib
 wordsegment
