@@ -13,6 +13,9 @@ import streamlit as st
 from PIL import Image
 import random
 import os
+from tensorflow.keras.models import Sequential
+from textblob import TextBlob
+from tensorflow.keras.layers import Dense, LSTM, Bidirectional, Conv1D, GlobalMaxPooling1D, GRU, Dropout, Reshape
 
 # Download necessary NLTK data
 nltk.download('stopwords')
@@ -97,12 +100,29 @@ class FeatureExtractor:
         return hashtags_count / total_sentences
 
     # Misspelled Words Frequency of words not considered valid by PyEnchant
-    def get_misspelled_words_frequency(self, text, total_sentences):
-        words = word_tokenize(text)
-        english_dict = enchant.Dict("en_US")
-        misspelled_words_count = sum(1 for word in words if not english_dict.check(word))
-        return misspelled_words_count / total_sentences
+    # def get_misspelled_words_frequency(self, text, total_sentences):
+    #     words = word_tokenize(text)
+    #     english_dict = enchant.Dict("en_US")
+    #     misspelled_words_count = sum(1 for word in words if not english_dict.check(word))
+    #     return misspelled_words_count / total_sentences
 
+    def get_misspelled_words_frequency(self, text, total_sentences):
+        # Create a TextBlob object
+        blob = TextBlob(text)
+        
+        # List to hold misspelled words
+        misspelled_words = []
+
+        # Check each word in the text
+        for word in blob.words:
+            # Identify if the word is misspelled
+            if word != word.correct():
+                misspelled_words.append(word)
+        
+        # Calculate frequency of misspelled words
+        misspelled_frequency = len(misspelled_words) / total_sentences if total_sentences > 0 else 0
+        
+        return misspelled_frequency
     # Out of Vocabulary Frequency of words not in the SentiWordNet dictionary
     def get_oov_frequency(self, text, total_sentences):
         words = word_tokenize(text)
@@ -438,7 +458,7 @@ if __name__ == "__main__":
         # Header
         #st.markdown('<h2 class="header">COMMENT MODERATION</h2>', unsafe_allow_html=True)
 
-        logo_path = "./data/model/logo_unipassau.PNG"
+        logo_path = "/workspaces/Thesis/constructive_final/data/model/logo_unipassau.PNG"
         university_logo = Image.open(logo_path)
         st.image(university_logo, width=700)
         #st.title("Text Analysis for Constructive Comments")
@@ -456,21 +476,21 @@ if __name__ == "__main__":
         model_1 = st.sidebar.selectbox("Please select a model:", ["Logistic Regression", "Support Vector Machine", "Random Forest", "K-Nearest Neighbor", "Long Short-Term Memory", "Bi-directional Long-Short Term Memory","Gated-Recurrent Unit", "Convolution Neural Network"])
         # Load the model (provide the path to your .joblib file)
         if model_1 == "Logistic Regression":
-            model_path = "./data/model/Logistic_Regression_best_model.pkl"
+            model_path = "/workspaces/Thesis/constructive_final/data/model/Logistic_Regression_best_model.pkl"
         elif model_1 == "Support Vector Machine":
-            model_path = "./data/model/SVM_best_model.pkl"
+            model_path = "/workspaces/Thesis/constructive_final/data/model/SVM_best_model.pkl"
         elif model_1 == "Random Forest":
-            model_path = "./data/model/Random_Forest_best_model.pkl"
+            model_path = "/workspaces/Thesis/constructive_final/data/model/Random_Forest_best_model.pkl"
         elif model_1 == "K-Nearest Neighbor":
-            model_path = "./data/model/KNN_best_model.pkl"
+            model_path = "/workspaces/Thesis/constructive_final/data/model/KNN_best_model.pkl"
         elif model_1 == "Long Short-Term Memory":
-            model_path = "./data/model/LSTM_best_model.pkl"
+            model_path = "/workspaces/Thesis/constructive_final/data/model/LSTM_best_model.pkl"
         elif model_1 == "Bi-directional Long-Short Term Memory":
-            model_path = "./data/model/BiLSTM_best_model_.pkl"
+            model_path = "/workspaces/Thesis/constructive_final/data/model/BiLSTM_best_model.pkl"
         elif model_1 == "Gated-Recurrent Unit":
-            model_path = "./data/model/GRU_best_model.pkl"
+            model_path = "/workspaces/Thesis/constructive_final/data/model/GRU_best_model.pkl"
         elif model_1 == "Convolution Neural Network":
-            model_path = "./data/model/CNN_best_model.pkl"
+            model_path = "/workspaces/Thesis/constructive_final/data/model/CNN_best_model.pkl"
 
         model = load_model(model_path)
         
