@@ -1,0 +1,18 @@
+{
+  "name": "Thesis",
+  "version": "1.0.0",
+  "dependencies": {
+    "joblib": "^1.2.0",
+    "pandas": "^2.0.0",
+    "scikit-learn": "^1.3.0",
+    "NRCLex": "^1.0.0",
+    "pyenchant": "^3.2.0",
+    "streamlit": "^1.27.0",
+    "scikeras": "^0.4.0",
+    "tensorflow": "^2.14.0",
+    "NormalizeContraction": "^1.0.0",
+    "bs4": "^0.0.1",
+    "matplotlib": "^3.7.2",
+    "wordsegment": "^2.0.2"
+  }
+}
