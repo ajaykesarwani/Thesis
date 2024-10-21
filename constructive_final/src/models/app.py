@@ -433,6 +433,7 @@ if __name__ == "__main__":
         .stSelectbox div[data-baseweb="select"] > div:first-child {
             background-color: #FFFFFF;
             border-color: #2d408d;
+            color: black;
         } 
         </style>
         """,
