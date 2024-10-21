@@ -430,10 +430,10 @@ if __name__ == "__main__":
             color: black;
             border: 2px solid green;
         }
-        # .stSelectbox div[data-baseweb="select"] > div:first-child {
-        #     background-color: #FFFFFF;
-        #     border-color: #2d408d;
-        # } 
+        .stSelectbox div[data-baseweb="select"] > div:first-child {
+            background-color: #FFFFFF;
+            border-color: #2d408d;
+        } 
         </style>
         """,
         unsafe_allow_html=True
@@ -454,10 +454,6 @@ if __name__ == "__main__":
     
     # Main container with custom style
     with st.container():
-        #st.markdown('<div class="main">', unsafe_allow_html=True)
-
-        # Header
-        #st.markdown('<h2 class="header">COMMENT MODERATION</h2>', unsafe_allow_html=True)
 
         logo_path = "./constructive_final/data/model/logo_unipassau.PNG"
         university_logo = Image.open(logo_path)
@@ -498,65 +494,11 @@ if __name__ == "__main__":
         
         # User input
         st.subheader("Enter a comment to check constructiveness:")
-        # user_input = st.text_area("")
-        # if st.button("Get Sample Comment"):
-        #     sample_comment = get_sample_comment()
-        #     st.write(sample_comment)
-        # Initialize the session state for the text area
-        # Initialize the session state for the text area
-        # if "user_input" not in st.session_state:
-        #     st.session_state.user_input = ""
-
-        # # Text area that automatically updates when a sample comment is generated or cleared
-        # user_input = st.text_area("Comment:", st.session_state.user_input)
-
-        # # Button to generate a sample comment
-        # if st.button("Get Sample Comment"):
-        #     sample_comment = get_sample_comment()
-        #     st.session_state.user_input = sample_comment  # Update the text area with the sample comment
-
-        # # Button to clear the text area
-        # if st.button("Clear"):
-        #     st.session_state.user_input = ""  # Clear the text area by resetting session state
-
         
-        # if st.button("Analyze"):
-        #     if user_input:
-        #         # Feature extraction
-        #         features = calculate_features_for_text(user_input)         
-        #         text_features = pd.DataFrame(features, columns=column_names)        
-        #         # Prediction
-        #         prediction, probability = predict_with_model(model, text_features)  
-
-        #         # Determine constructiveness
-        #         if prediction == 1:
-        #             cons = "CONSTRUCTIVE"
-        #         else:
-        #             cons = "NON_CONSTRUCTIVE"
-
-        #         predicted_class_prob = probability[0][prediction[0]]
-
-        #         # Display the results
-        #         st.write(f"According to our {model_1} model, the comment is likely to be {cons} with a probability of {predicted_class_prob:.2f}")
-        
-            
-        #         # st.subheader("Prediction Results:")
-        #         # st.write(f"Predicted Class: {prediction}")
-        #         # st.write(f"Prediction Probabilities: {probability}")
-        #         print("Prediction Results:")
-        #         print(f"Predicted Class: {prediction}")
-        #         print(f"Prediction Probabilities: {probability}")
-        #     else:
-        #         st.error("Please enter some text to analyze.")
-
-
         # Button to generate a sample comment (Example Comment at the top)
         if st.button("Get Sample Comment"):
             sample_comment = get_sample_comment()
             st.session_state.user_input = sample_comment  # Update the text area with the sample comment
-
-        # Subheader for the input section
-        # st.subheader("Enter a comment to check constructiveness:")
 
         # Initialize the session state for the text area
         if "user_input" not in st.session_state:
@@ -606,8 +548,6 @@ if __name__ == "__main__":
                         raise ValueError("Prediction or probability is not an ndarray.")
 
                     print(f"Predicted class probability: {predicted_class_prob}")
-
-
 
                     # Display the results
                     st.write(f"According to our {model_1} model, the comment is likely to be {cons} with a probability of {predicted_class_prob:.2f}")
