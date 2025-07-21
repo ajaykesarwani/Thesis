@@ -1,16 +1,16 @@
 Constructive Comments 
 ===========================
-This Master Thesis project is to classify the Online News Comments weather it's Constructive or Non-Constructive. 
-This study used Linguistic (Stylistic, Complexity and Psychological features and POS Tags from Penn Treebank) and eight basic emotional features(using NRCLex Library) to classify the constructiness of a given text. 
+This Master Thesis project is to classify the Online News Comments whether it's Constructive or Non-Constructive. 
+This study used Linguistic (Stylistic, Complexity and Psychological features and POS Tags from Penn Treebank) and eight basic emotional features(using NRCLex Library) to classify the constructiveness of a given text. 
 
-For this project we used the the Constructive Comments Corpus (C3) which consists of 12,000 comments annotated by crowdworkers and Yahoo News Annotated Comment Corpus whcih consists of 23,383 annotated comments.
+For this project, we used the Constructive Comments Corpus (C3), which consists of 12,000 comments annotated by crowdworkers, and Yahoo News Annotated Comment Corpus, which consists of 23,383 annotated comments.
 
 - SFU Opinion and Comments Corpus](https://github.com/sfu-discourse-lab/SOCC)
 - Constructive Comments Corpus (C3)
     - On Kaggle: [https://www.kaggle.com/mtaboada/c3-constructive-comments-corpus](https://www.kaggle.com/mtaboada/c3-constructive-comments-corpus)
 
 - Yahoo News Annotated Comment Corpus
-    - on Github : https://github.com/cnap/ynacc
+    - on Github: https://github.com/cnap/ynacc
 Project Organization
 ------------
 
@@ -33,13 +33,13 @@ Project Organization
     │   │   │                 predictions
     │   │   ├── m_logistic.py    
     │   │   ├── m_deeplearning.py
-    │   │   └── apps.py    <- Run this file using Streamlit run apps.py to check constructivness comments in realtime.
+    │   │   └── apps.py    <- Run this file using Streamlit run apps.py to check constructivness comments in real-time.
     │   │
-    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations across different features
+    │   └── visualization  <- Scripts to create exploratory and results-oriented visualizations across different features
     │       └── feature_correaltion.py
     │
     └
 
-You can also test any comment weather it's constructive or non-constructive using below hosted link:
+You can also test any comment, whether it's constructive or non-constructive, using the below hosted link:
 https://ajay-constructiveness.streamlit.app/
  
